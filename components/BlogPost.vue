@@ -24,7 +24,7 @@ defineProps<{
                 <span class="bg-[#FF0060] rounded-xl px-4 py-3 text-[12px]">Female</span>
             </div> -->
             <h2 class="text-gray-800 font-semibold text-[24px] mt-5 leading-8">{{ content.header }}</h2>
-            <p class="text-gray-600 text-[16px] mt-2">{{ content.perex }}</p>
+            <p class="text-gray-700 text-[16px] mt-2">{{ content.perex }}</p>
         </div>
     </article>
     </NuxtLink>
