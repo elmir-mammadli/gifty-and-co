@@ -19,8 +19,16 @@ export const routesData: NavbarData[] = [
         label: 'Trending',
         path: '/blog'
     },
+<<<<<<< Updated upstream
     {
         label: 'Sale',
         path: '/blog2'
     }
+=======
+    // {
+    //     label: 'Sale',
+    //     path: '/blog2',
+    //     color: '#E40A2D'
+    // }
+>>>>>>> Stashed changes
 ]
