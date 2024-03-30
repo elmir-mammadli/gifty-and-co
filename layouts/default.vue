@@ -4,7 +4,6 @@
 <template>
   <div class="bg-white font-poppins">
     <Navbar />
-    <Hero />
   <div>
     <slot />
   </div>

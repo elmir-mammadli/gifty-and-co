@@ -19,5 +19,12 @@
     "nuxt-icons": "^3.2.1",
     "vue": "^3.4.19",
     "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@stefanobartoletti/nuxt-social-share": "^0.5.4",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.24.0"
   }
 }

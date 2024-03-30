@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     '@nuxt/ui', 
     '@nuxt/image', 
     'nuxt-icons',
+    '@stefanobartoletti/nuxt-social-share',
     ['@storyblok/nuxt', { accessToken: 'w1uPNOeL4KxHkC8llyZzDAtt' }],
   ],
   image: {

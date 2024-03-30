@@ -1,34 +1,32 @@
 export interface NavbarData {
     label: string;
     path: string;
+    color?: string;
 }
 export const routesData: NavbarData[] = [
     {
         label: 'Shop by Interest',
-        path: '/'
+        path: '/',
+        color: '#32C6F2'
     },
     {
         label: 'Occasions',
-        path: '/about'
+        path: '/about',
+        color: '#E41756'
     },
     {
         label: 'For',
-        path: '/contact'
+        path: '/contact',
+        color: '#2CBD80'
     },
     {
         label: 'Trending',
-        path: '/blog'
+        path: '/blog',
+        color: '#E40A2D'
     },
-<<<<<<< Updated upstream
-    {
-        label: 'Sale',
-        path: '/blog2'
-    }
-=======
     // {
     //     label: 'Sale',
     //     path: '/blog2',
     //     color: '#E40A2D'
     // }
->>>>>>> Stashed changes
 ]

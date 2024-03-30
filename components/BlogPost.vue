@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { TransitionGroup } from 'vue';
+
 // interface BlogPost {
 //   body: {
 //     full_slug: string
@@ -18,19 +20,37 @@ console.log('Props in Post', props.post);
 
 </script>
 <template>
-    <div>
-    <article class="max-w-[410px] flex flex-col justify-start">
-        <div>
-            <img :src="post.content.image.filename" class="rounded-[32px] bg-red-300 w-[410px] h-[220px]" />
-        </div>
-        <div class="max-w-[360px] ps-4">
+<NuxtLink :to="'/' + post.full_slug">
+    <article class="max-w-[410px] flex flex-col justify-start hover:scale-[99%] transition ease-linear duration-75 group">
+            <span class="outline outline-gray-200 outline-opacity-35 rounded-[6px]">
+                <NuxtImg :src="post.content.image.filename" class="rounded-[6px] w-[410px] h-[220px]" />
+            </span>
+            <div class="flex justify-between mt-2 text-black opacity-60">
+                <div class="flex items-center gap-x-2">
+                     <p class="text-[14px]">Bryan Scott</p>
+                     <p>•</p>
+                    <p class="text-[14px]">Aug 2, 2023</p>
+                </div>
+                <div>
+                    <p class="text-[14px]">10 min. read</p>
+                </div>
+            </div>
+        <div class="max-w-[360px]">
             <!-- <div class="flex gap-x-2">
                 <span class="bg-green-400 rounded-xl px-4 py-3 text-[12px]">Mothers Day</span>
                 <span class="bg-[#FF0060] rounded-xl px-4 py-3 text-[12px]">Female</span>
             </div> -->
-            <h2 class="text-gray-800 font-semibold text-[24px] mt-5 leading-8">{{ post.name }}</h2>
-            <p class="text-gray-700 text-[16px] mt-2">{{ post?.body?.perex }}</p>
+            <h2 class="text-gray-800 font-semibold text-[24px] mt-2 leading-8 group-hover:underline">{{ post.name }}</h2>
+            <p class="text-break text-black opacity-60 text-[16px] font-normal mt-2 tracking-normal">{{ post?.content?.perex }}</p>
         </div>
     </article>
-    </div>
+    </NuxtLink>
 </template>
+<style>
+.text-break {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+</style>
