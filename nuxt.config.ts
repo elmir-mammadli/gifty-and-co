@@ -3,8 +3,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui', 
     '@nuxt/image', 
+    '@nuxtjs/tailwindcss',
     'nuxt-icons',
-    '@stefanobartoletti/nuxt-social-share',
     ['@storyblok/nuxt', { accessToken: 'w1uPNOeL4KxHkC8llyZzDAtt' }],
   ],
   image: {
@@ -18,7 +18,7 @@ export default defineNuxtConfig({
       xxl: 1599,
       '3xl': 1919
     },
-    densities: [1, 2, 3],
+    densities: [1, 2],
     format: ['webp'],
     quality: 80
   },

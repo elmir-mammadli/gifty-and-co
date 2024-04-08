@@ -2,12 +2,14 @@
 
 </script>
 <template>
-  <div class="bg-white font-poppins">
+  <section class="bg-white font-poppins">
+   <div class="max-w-[1280px] mx-auto">
     <Navbar />
-  <div>
+    <div>
     <slot />
-  </div>
-  </div>
+    </div>
+   </div>
+  </section>
 </template>
 <style>
 

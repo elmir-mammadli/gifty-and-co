@@ -36,11 +36,10 @@
   const readingTime = computed(() => {
     return `${props.blok.readTime} min. read`
   })
-  console.log('Props', props.blok)
   </script>
   <template>
     <article v-editable="blok"
-    class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 place-items-center place-content-center gap-x-7 p-7 bg-gray-100 rounded-xl mt-[96px]"
+    class="max-w-none mx-auto grid grid-cols-1 md:grid-cols-2 place-items-center place-content-center gap-x-8 p-6 bg-[#d3d3d3]/30 rounded-xl mt-[96px]"
     >
     <div class="max-w-[600px] w-full">
       <NuxtImg :src="blok.image.filename" class="rounded-xl w-full" />
@@ -50,23 +49,29 @@
       <p class="text-[18px] font-normal text-gray-700 mt-2">
         {{ blok.perex }}
       </p>
-        <div class="flex items-center justify-between gap-x-3 text-gray-500 font-normal text-[18px] mt-3">
-                    <div class="flex items-center gap-x-2">
-                        <p class="text-[14px]">
-                          {{ date }}
-                        </p>
-                        <p>•</p>
-                        <p class="text-[14px]">
+          <!-- <div class="h-[1px] w-full bg-gray-500/40 my-4"></div> -->
+        <div class="flex items-center justify-between gap-x-3 text-gray-500 font-medium text-[14px] mt-4">
+                        <span>
+                          <NuxtLink to="/" class="text-[14px] font-medium text-blue-600"> 
+                            Back to Blog
+                          </NuxtLink>
+                        </span>
+                        <span class="flex items-center gap-x-2">
+                          <p class="">
                           {{ blok.author }}
-                        </p>
-                    </div>
-                    <div>
-                      <p class="text-[14px]"> 
-                       {{
-                        readingTime
-                       }} 
-                      </p>
-                    </div>
+                          </p>
+                          <p class="">|</p>
+                          <p class="">
+                          {{ date }}
+                          </p>
+                        </span>
+                        <span>
+                            <p class="text-[14px]"> 
+                            {{
+                              readingTime
+                            }} 
+                            </p>
+                        </span>
           </div>
           <div class="flex flex-row gap-2">
             <SocialShare

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import BlogPost from '~/components/BlogPost.vue';
-import BlogPostHero from '~/components/BlogPostHero.vue';
 const blog = ref<[]>([])
 const storyblok = useStoryblokApi()
 
@@ -10,7 +9,6 @@ async function getPosts () {
     version: 'draft'
   })
   blog.value = res.data.stories
-  console.log('121', blog.value);
 }
 
 await useAsyncData('blog-posts', () => {

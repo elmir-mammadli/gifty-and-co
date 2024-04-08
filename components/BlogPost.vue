@@ -12,11 +12,9 @@ import { TransitionGroup } from 'vue';
 //   perex: string
 //   }
 // }
-const props = defineProps<{
+defineProps<{
   post: any
 }>()
-console.log('Props in Post', props.post);
-
 
 </script>
 <template>

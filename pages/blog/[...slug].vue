@@ -4,7 +4,6 @@ const story = await useAsyncStoryblok(
   `blog/${route.params.slug[0]}`, 
   { version: 'draft' }
 )
-console.log('Story', story)
 </script>
 <template>
     <div>

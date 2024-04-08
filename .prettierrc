@@ -1,0 +1,7 @@
+{
+  "singleQuote": false,
+  "semi": false,
+  "vueIndentScriptAndStyle": true,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "trailingComma": "es5"
+}
