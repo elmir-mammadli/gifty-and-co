@@ -6,7 +6,7 @@ export interface NavbarData {
 export const routesData: NavbarData[] = [
     {
         label: 'Shop by Interest',
-        path: '/',
+        path: '/men',
         color: '#32C6F2'
     },
     {

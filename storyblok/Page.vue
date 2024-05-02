@@ -1,10 +1,10 @@
 <template>
     <section v-editable="blok">
       <BlogPostHero class="mt-[96px]" v-if="blok" :blok="blok"  />
-      <section class="max-w-[1280px] mx-auto flex items-start justify-between mt-[96px]" style="column-gap: 32px;">
-        <ContentsTable :contents="blok.body" :class="{
+      <section class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-start justify-between mt-[96px]" style="column-gap: 32px; padding: 20px;">
+        <!-- <ContentsTable :contents="blok.body" :class="{
           'sticky-content' : isFixed
-        }" />
+        }" /> -->
         <div class="flex flex-col">
           <StoryblokComponent
           v-for="blok in blok.body"

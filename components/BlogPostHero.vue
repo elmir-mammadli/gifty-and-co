@@ -45,7 +45,7 @@
       <NuxtImg :src="blok.image.filename" class="rounded-xl w-full" />
     </div>
     <div>
-      <h2 class="text-[40px] font-semibold text-gray-800">{{ blok.header }}</h2>
+      <h2 class="text-[36px] leading-[48px] font-semibold text-gray-800">{{ blok.header }}</h2>
       <p class="text-[18px] font-normal text-gray-700 mt-2">
         {{ blok.perex }}
       </p>

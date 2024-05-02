@@ -11,12 +11,8 @@ async function getPosts () {
   blog.value = res.data.stories
 }
 
-await useAsyncData('blog-posts', () => {
-  return getPosts()
-})
-
 onMounted(() => {
-  getPosts()
+  return getPosts()
 })
 </script>
 

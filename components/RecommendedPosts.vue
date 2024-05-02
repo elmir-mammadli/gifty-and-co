@@ -53,10 +53,6 @@
     }
   }
 
-  const data = computed(() => {
-    return props.contents.content.date
-  })
-
   const date = (dateDigits: string) => {
     return new Date (dateDigits).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -70,8 +66,6 @@
     const res = await storyblokApi.get('cdn/stories', {
       starts_with: 'blog',
       version: 'draft',
-      sort_by: 'first_published_at:desc',
-      per_page: 3,
       filter_query: hideCurrent()
     })
     recommendedPosts.value = res.data.stories

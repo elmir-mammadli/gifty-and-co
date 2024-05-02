@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
+console.log('Route', route.params);
+
 const story = await useAsyncStoryblok(
-  `blog/${route.params.slug[0]}`, 
+  `blog/${Array.isArray(route.params.slug) ? route.params.slug.join('/') : route.params.slug}`, 
   { version: 'draft' }
 )
 </script>

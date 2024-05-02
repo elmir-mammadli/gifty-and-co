@@ -1,10 +1,10 @@
 <template>
     <section 
     :id="blok._uid"
-    class="flex flex-col items-center justify-center mb-10" style="max-width: 745px; margin-bottom: 80px;">
+    class="flex flex-col items-center justify-center mb-10" style="max-width: 800px; margin-bottom: 80px;">
       <div class="flex flex-col items-start">
         <h3
-        class="text-black text-3xl font-bold pr-3">
+        class="text-gray-900 text-3xl font-semibold pr-3">
         {{ blok.header }}
         </h3>
         <div class="flex items-start mt-4" style="column-gap: 24px;">
@@ -14,9 +14,9 @@
           class="rounded-md"
           />
           <div>
-            <div class="text-black text-[18px]" v-html="blok.perex" />
+            <div class="text-gray-900 text-[18px]" v-html="blok.perex" />
           <NuxtLink :to="blok.button.url" target="_blank">
-            <button class="btn-style p-4 mt-4 rounded-md hover:underline font-medium text-lg">Buy from Amazon.com</button>
+            <button class="btn-style p-4 mt-4 rounded-md text-white hover:underline font-medium text-lg">Buy from Amazon.com</button>
           </NuxtLink>
           </div>
         </div>
