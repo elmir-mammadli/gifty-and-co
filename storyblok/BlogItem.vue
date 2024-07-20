@@ -14,7 +14,7 @@
           class="rounded-md"
           />
           <div>
-            <div class="text-gray-900 text-[18px]" v-html="blok.perex" />
+            <div class="blok-perex" v-html="blok.perex" />
           <NuxtLink :to="blok.button.url" target="_blank">
             <button class="btn-style p-4 mt-4 rounded-md text-white hover:underline font-medium text-lg">Buy from Amazon.com</button>
           </NuxtLink>
@@ -31,8 +31,6 @@
         required: true
     }
   })
-
-  console.log('PropsE', props.blok);
   </script>
   <style lang="scss">
 .btn-style {
@@ -46,3 +44,7 @@
   }
 }
 </style>
+<style>
+.blok-perex {
+    @apply text-gray-900 text-[18px] text-pretty
+  }</style>

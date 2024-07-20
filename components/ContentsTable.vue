@@ -20,8 +20,6 @@
   const props = defineProps<{
     contents: Content[]
   }>()
-  console.log('PropsQWE', props.contents);
-  
 
 const content = props.contents.filter((item: Content) => item.component === 'BlogItem')
 

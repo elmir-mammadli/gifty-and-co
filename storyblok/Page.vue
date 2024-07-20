@@ -1,7 +1,7 @@
 <template>
     <section v-editable="blok">
       <BlogPostHero class="mt-[96px]" v-if="blok" :blok="blok"  />
-      <section class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-start justify-between mt-[96px]" style="column-gap: 32px; padding: 20px;">
+      <section class="elmir">
         <!-- <ContentsTable :contents="blok.body" :class="{
           'sticky-content' : isFixed
         }" /> -->
@@ -19,7 +19,7 @@
         <button 
         v-if="isScrollIcon"
         @click='scrollToTop'
-        class="fixed bottom-4 right-4 bg-white text-black p-2 rounded-full shadow-md"
+        class="hidden md:block fixed bottom-4 right-4 bg-white text-black p-2 rounded-full shadow-md"
         >Top</button>
       </section>
   </section>
@@ -77,7 +77,7 @@ defineProps({
   </script>
   <style>
   .elmir {
-    margin-top: 96px;
+    @apply flex flex-col lg:flex-row items-start justify-between gap-x-8 p-6 mt-[96px];
   }
   .sticky-content {
     position: sticky;

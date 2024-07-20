@@ -41,7 +41,6 @@
   }
   const storyblokApi = useStoryblokApi()
   const recommendedPosts = ref<Content[]>([])
-  console.log('AWW', props.contents);
 
   const hideCurrent = () => {
     if (props.contents) {
@@ -69,7 +68,6 @@
       filter_query: hideCurrent()
     })
     recommendedPosts.value = res.data.stories
-    console.log('RecommendedPosts', recommendedPosts.value);
     
   })
   </script>
