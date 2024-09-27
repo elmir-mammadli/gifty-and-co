@@ -4,7 +4,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
-        'oswald': ['Oswald', 'sans-serif']
+        'oswald': ['Oswald', 'sans-serif'],
+        'space-grotesk': ['Space Grotesk', 'sans-serif']
       },
       screens: {
         sm: '640px',
@@ -18,5 +19,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

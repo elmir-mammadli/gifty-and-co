@@ -5,11 +5,11 @@
       </h3>
       <div v-for="(item, index) in recommendedPosts" :key="index" class="flex gap-x-1 text-[16px] font-normal mb-1 text-black">
         <NuxtLink :to="item.full_slug" target="_blank" class="text-black font-normal group mb-4">
-          <div class="">
-            <NuxtImg :src="item.content.image.filename" />
-            <p class="group-hover:underline font-semibold">{{ item.name }}</p>
+          <NuxtImg :src="item.content.image.filename" class="rounded-md" />
+          <div>
+            <p class="group-hover:underline font-semibold mt-1">{{ item.name }}</p>
           </div>
-          <!-- <div class="flex items-center text-[13px] mt-1 text-black opacity-50 font-light gap-x-2">
+          <div class="flex items-center text-[13px] mt-1 text-black opacity-50 font-light gap-x-2">
                           <p>
                             {{ date(item.content.date) }}
                           </p>
@@ -17,7 +17,7 @@
                           <p>
                           {{ item.content.author }}
                           </p>
-                        </div> -->
+                        </div>
         </NuxtLink>
       </div>
     </div>

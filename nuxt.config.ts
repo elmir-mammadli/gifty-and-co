@@ -1,12 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    '@nuxt/ui', 
-    '@nuxt/image', 
+    '@nuxt/ui',
+    '@nuxt/image',
     '@nuxtjs/tailwindcss',
     'nuxt-icons',
     ['@storyblok/nuxt', { accessToken: 'w1uPNOeL4KxHkC8llyZzDAtt' }],
+    "@nuxt/scripts"
   ],
+  imports: {
+    autoImport: true
+  },
   image: {
     screens: {
       sm: 639,
@@ -22,6 +26,7 @@ export default defineNuxtConfig({
     format: ['webp'],
     quality: 80
   },
+  ssr: false,
   app:{
     head: {
       link: [
@@ -34,7 +39,12 @@ export default defineNuxtConfig({
         {
           href: 'https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap',
           rel: 'stylesheet'
-        }
+        },
+        // Space Grotesk font
+        {
+          href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap',
+          rel: 'stylesheet'
+        },
       ],
     },
   }

@@ -2,14 +2,13 @@
 
 </script>
 <template>
-  <section class="bg-white font-poppins">
+  <div class="bg-white font-space-grotesk">
    <div class="max-w-[1280px] mx-auto">
     <Navbar />
-    <div>
     <slot />
-    </div>
+    <Footer />
    </div>
-  </section>
+  </div>
 </template>
 <style>
 

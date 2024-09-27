@@ -1,15 +1,35 @@
 <script setup lang="ts">
 import BlogPost from '~/components/BlogPost.vue';
+import Skeleton from '~/components/Skeleton.vue';
+
+type Categories = 'men' | 'women' | 'kids' | 'trending' | ''
+
 const blog = ref<[]>([])
+const route = useRoute()
 const storyblok = useStoryblokApi()
+const loading = ref(false)
+console.log('Routsse', route.params);
+
 
 async function getPosts () {
-  const res = await storyblok.get('cdn/stories', {
-    starts_with: 'blog/',
+  const category: Categories = 'men';
+  loading.value = true
+  try {
+    const res = await storyblok.get('cdn/stories', {
+    starts_with: `blog/${category}`,
     version: 'draft'
   })
+  loading.value = false
   blog.value = res.data.stories
+  }
+  catch (error) {
+    console.error(error)
+  }
+  finally {
+   loading.value = false
+  }
 }
+const preloaderSkeleton = computed(() => loading ? Array(4).fill(Skeleton) : '')
 
 onMounted(() => {
   return getPosts()
@@ -19,12 +39,18 @@ onMounted(() => {
 <template>
   <div class="flex flex-col justify-center">
     <Hero />
-    <TransitionGroup name="list" tag="div" class="max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-y-12 px-5 mt-12">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 rD:grid-cols-4 gap-8 md:gap-y-12 px-5 rD:px-0 mt-12">
+      <TransitionGroup name="list">
       <BlogPost 
-      v-for="(post, index) in blog" 
-      :key="index"
-      :post="post" />
-    </TransitionGroup>
+        v-for="(post, index) in blog" 
+        :key="index"
+        :post="post" 
+      />
+      </TransitionGroup> 
+      <template v-if="loading" v-for="(skeleton, id) in preloaderSkeleton" :key="id">
+      <component :is="skeleton" />
+      </template>
+    </div>
   </div>
 </template>
 <style>

@@ -4,8 +4,8 @@
         Contents table
       </h3>
       <div v-for="(item, index) in content" :key="index" class="flex gap-x-1 text-[16px] font-normal mb-1 text-black">
-        <p class="font-semibold">{{ `${index + 1}.` }}</p>
-        <NuxtLink :to="clickToArticle(item._uid)" class="text-black hover:underline">
+        <!-- <p class="font-semibold">{{ `${index + 1}.` }}</p> -->
+        <NuxtLink :to="clickToArticle(item._uid)" class="text-black hover:underline mt-1 text-sm">
           {{ item.header }}
         </NuxtLink>
       </div>

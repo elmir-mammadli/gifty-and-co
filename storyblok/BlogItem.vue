@@ -32,11 +32,10 @@
     }
   })
 
-  console.log('PropsE', props.blok);
   </script>
   <style lang="scss">
 .btn-style {
-  background-color: #EB1C2B;
+  background-color: #EC212F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &:hover {
     scale: 99.2%;

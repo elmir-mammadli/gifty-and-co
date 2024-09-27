@@ -20,17 +20,18 @@ defineProps<{
 <template>
 <NuxtLink :to="'/' + post.full_slug">
     <article class="max-w-[410px] flex flex-col justify-start hover:scale-[99%] transition ease-linear duration-75 group">
-            <span class="outline outline-gray-200 outline-opacity-35 rounded-[6px]">
-                <NuxtImg :src="post.content.image.filename" class="rounded-[6px] w-[410px] h-[220px]" />
-            </span>
+            <div class="outline outline-gray-200 outline-opacity-35 rounded-[6px]">
+                    <NuxtImg :src="post.content.image.filename" class="rounded-[6px]" />
+            </div>
             <div class="flex justify-between mt-2 text-black opacity-60">
                 <div class="flex items-center gap-x-2">
-                     <p class="text-[14px]">Bryan Scott</p>
-                     <p>•</p>
-                    <p class="text-[14px]">Aug 2, 2023</p>
+                     <p class="text-[13px]">Bryan Scott</p>
+                     <!-- <p>•</p> -->
+                    <!-- <p class="text-[13px]">Aug 2, 2023</p> -->
                 </div>
                 <div>
-                    <p class="text-[14px]">10 min. read</p>
+                    <p class="text-[13px]">Aug 2, 2023</p>
+                    <!-- <p class="text-[14px]">10 min. read</p> -->
                 </div>
             </div>
         <div class="max-w-[360px]">

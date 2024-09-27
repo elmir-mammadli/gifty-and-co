@@ -39,23 +39,25 @@
   </script>
   <template>
     <article v-editable="blok"
-    class="max-w-none mx-auto grid grid-cols-1 md:grid-cols-2 place-items-center place-content-center gap-x-8 p-6 bg-[#d3d3d3]/30 rounded-xl mt-[96px]"
+    class="max-w-none mx-auto grid grid-cols-1 md:grid-cols-2 place-items-start place-content-between gap-x-8 p-8 bg-[#E6E6FA] rounded-xl mt-[24px]"
     >
     <div class="max-w-[600px] w-full">
       <NuxtImg :src="blok.image.filename" class="rounded-xl w-full" />
     </div>
     <div>
-      <h2 class="text-[36px] leading-[48px] font-semibold text-gray-800">{{ blok.header }}</h2>
-      <p class="text-[18px] font-normal text-gray-700 mt-2">
+    <BreadCrumb />
+      <h2 class="text-[42px] leading-[48px] font-bold text-gray-800 mt-4">{{ blok.header }}</h2>
+      <p class="text-[18px] font-normal text-gray-600 mt-2 font-sans">
         {{ blok.perex }}
       </p>
-          <!-- <div class="h-[1px] w-full bg-gray-500/40 my-4"></div> -->
-        <div class="flex items-center justify-between gap-x-3 text-gray-500 font-medium text-[14px] mt-4">
-                        <span>
-                          <NuxtLink to="/" class="text-[14px] font-medium text-blue-600"> 
+          <div class="h-[1px] w-full bg-gray-500/40 my-4"></div>
+        <div class="flex items-center justify-between gap-x-3 text-gray-500 font-medium text-[15px] mt-8">
+                        <div class="flex gap-x-1.5 items-center group">
+                          <NuxtIcon name="north-west" class="text-[18px] group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:transition ease-in duration-150 text-blue-600" />
+                          <NuxtLink to="/" class="font-medium text-blue-600"> 
                             Back to Blog
                           </NuxtLink>
-                        </span>
+                        </div>
                         <span class="flex items-center gap-x-2">
                           <p class="">
                           {{ blok.author }}
@@ -66,7 +68,7 @@
                           </p>
                         </span>
                         <span>
-                            <p class="text-[14px]"> 
+                            <p> 
                             {{
                               readingTime
                             }} 
