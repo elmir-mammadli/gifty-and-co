@@ -3,7 +3,7 @@
 </script>
 <template>
   <div class="bg-white font-space-grotesk">
-   <div class="max-w-[1280px] mx-auto">
+   <div class="mx-auto max-w-screen-rD">
     <Navbar />
     <slot />
     <Footer />

@@ -19,7 +19,7 @@ const linkConcatenator = (link: string) => {
 </script>
 
 <template>
-    <nav class="max-w-screen-xl mx-auto flex justify-center items-center pt-6 ps-5 pe-10">
+    <nav class="hidden md:flex justify-center items-center max-w-screen-rD mx-auto pt-6 px-5">
         <NuxtLink to="/" class="flex gap-x-1.5 items-center justify-center me-auto">
             <NuxtIcon name="color" class="text-[36px] mt-[7px]" filled />
             <p class="text-gray-800 font-semibold text-[24px] font-poppins tracking-tight">Gifty & Co.</p>

@@ -1,22 +1,53 @@
+<script setup lang="ts">
+interface Blok {
+  blok: {
+  _uid: string
+  header: string
+  img: {
+    filename: string
+  }
+  perex: string
+  button: {
+    url: string
+  }
+  }
+  order: number
+}
+defineProps<Blok>()
+const headerOrderNum = (num: number): string => {
+  return num + 1 + '. '
+}
+
+const slugify = (text: Blok['blok']['header']): string => {
+return text.toLowerCase().replace(/\s+/g, '-')
+}
+</script>
+
 <template>
     <section 
-    :id="blok._uid"
+    :id="slugify(blok.header)"
     class="flex flex-col items-center justify-center mb-10" style="max-width: 800px; margin-bottom: 80px;">
-      <div class="flex flex-col items-start">
+      <div 
+      class="flex flex-col items-star"
+      :class="{
+        'mt-10': order
+      }"
+      >
         <h3
-        class="text-gray-900 text-3xl font-semibold pr-3">
-        {{ blok.header }}
+        class="text-[#1b2b68] text-3xl font-semibold pr-3">
+        {{ `${headerOrderNum(order)}${blok.header}` }}
         </h3>
         <div class="flex items-start mt-4" style="column-gap: 24px;">
           <NuxtImg
           width="280"
           :src="blok.img.filename"
+          :alt="slugify(blok.header)"
           class="rounded-md"
           />
           <div>
-            <div class="text-gray-900 text-[18px]" v-html="blok.perex" />
+            <div class="text-[#1b2b68] text-[18px]" v-html="blok.perex" />
           <NuxtLink :to="blok.button.url" target="_blank">
-            <button class="btn-style p-4 mt-4 rounded-md text-white hover:underline font-medium text-lg">Buy from Amazon.com</button>
+            <button class="btn-style p-4 mt-6 rounded-md font-poppins text-white hover:underline font-semibold" style="text-transform: uppercase; letter-spacing: 0.5px;">Buy from Amazon.com</button>
           </NuxtLink>
           </div>
         </div>
@@ -24,16 +55,7 @@
     </section>
   </template>
    
-  <script setup lang="ts">
-  const props = defineProps({
-    blok: {
-        type: Object,
-        required: true
-    }
-  })
-
-  </script>
-  <style lang="scss">
+<style lang="scss">
 .btn-style {
   background-color: #EC212F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -43,5 +65,8 @@
     box-shadow: none;
     background-color: #d81926;
   }
+}
+html {
+  scroll-behavior: smooth;
 }
 </style>

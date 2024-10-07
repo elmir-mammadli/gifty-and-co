@@ -4,18 +4,20 @@ import { onMounted, onUnmounted } from 'vue';
 import BlogPostHero from '~/components/BlogPostHero.vue';
 import BreadCrumb from '~/components/BreadCrumb.vue';
 
-defineProps({
+const props = defineProps({
   blok: {
     type: Object,
     required: true
   }
 })
 
+console.log('BlogPost', props.blok)
+
 const isFixed = ref(false)
 const isScrollIcon = ref(false)
 
 const isPositionFixed = () => {
-  if (window.scrollY > 640) {
+  if (window.scrollY > 520) {
     isFixed.value = true
     isScrollIcon.value = true
   } else {
@@ -34,25 +36,10 @@ onUnmounted(() => {
 
 const scrollToTop = () => {
   window.scrollTo({
-    top: 0,
+    top: 10,
     behavior: 'smooth'
   })
 }
-
-const links = [
-  {
-    text: 'Home',
-    to: '/'
-  },
-  {
-    text: 'Blog',
-    to: '/blog'
-  },
-  {
-    text: 'Blog Post',
-    to: ''
-  }
-]
 
 
 // useServerSeoMeta({
@@ -63,20 +50,23 @@ const links = [
 //   ogImage: props.blok.image.filename,
 //   twitterCard: 'summary_large_image'
 // })
+
+const arraySum = props.blok.body.length
 </script>
 
 <template>
     <section class="mt-[80px]" v-editable="blok">
         <BlogPostHero v-if="blok" :blok="blok"  />
-      <section class="flex md:flex-row items-start justify-between" style="column-gap: 32px; padding: 20px; margin-top: 60px;">
-        <ContentsTable :contents="blok.body" :class="{
+      <section class="flex md:flex-row items-start justify-between" style="column-gap: 32px; margin-top: 60px;">
+        <ContentsTable :is-fixed="isFixed" :contents="blok.body" :class="{
           'sticky-content' : isFixed
         }" />
         <div class="flex flex-col">
           <StoryblokComponent
-          v-for="blok in blok.body"
+          v-for="(blok, index) in blok.body"
           :key="blok._uid"
           :blok="blok"
+          :order="index"
         />
         </div>
         <RecommendedPosts :contents="blok" :class="{

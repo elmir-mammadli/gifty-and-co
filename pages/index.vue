@@ -29,7 +29,7 @@ async function getPosts () {
    loading.value = false
   }
 }
-const preloaderSkeleton = computed(() => loading ? Array(4).fill(Skeleton) : '')
+const preloaderSkeleton = computed(() => loading ? Array(3).fill(Skeleton) : '')
 
 onMounted(() => {
   return getPosts()
@@ -39,7 +39,7 @@ onMounted(() => {
 <template>
   <div class="flex flex-col justify-center">
     <Hero />
-    <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 rD:grid-cols-4 gap-8 md:gap-y-12 px-5 rD:px-0 mt-12">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 rD:grid-cols-3 gap-8 md:gap-y-12 px-5 rD:px-0 mt-12">
       <TransitionGroup name="list">
       <BlogPost 
         v-for="(post, index) in blog" 

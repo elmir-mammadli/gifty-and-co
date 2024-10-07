@@ -8,6 +8,7 @@ module.exports = {
         'space-grotesk': ['Space Grotesk', 'sans-serif']
       },
       screens: {
+        xs: '414px',
         sm: '640px',
         md: '768px',
         lg: '1024px',

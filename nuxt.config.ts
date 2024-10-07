@@ -6,11 +6,18 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-icons',
     ['@storyblok/nuxt', { accessToken: 'w1uPNOeL4KxHkC8llyZzDAtt' }],
-    "@nuxt/scripts"
+    "@nuxt/scripts",
+    '@nuxtjs/sitemap',
   ],
+
+  site: {
+    url: 'https://',
+  },
+
   imports: {
     autoImport: true
   },
+
   image: {
     screens: {
       sm: 639,
@@ -26,7 +33,9 @@ export default defineNuxtConfig({
     format: ['webp'],
     quality: 80
   },
+
   ssr: false,
+
   app:{
     head: {
       link: [
@@ -47,5 +56,7 @@ export default defineNuxtConfig({
         },
       ],
     },
-  }
+  },
+
+  compatibilityDate: '2024-10-06',
 })

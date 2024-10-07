@@ -45,30 +45,30 @@
       <NuxtImg :src="blok.image.filename" class="rounded-xl w-full" />
     </div>
     <div>
-    <BreadCrumb />
-      <h2 class="text-[42px] leading-[48px] font-bold text-gray-800 mt-4">{{ blok.header }}</h2>
-      <p class="text-[18px] font-normal text-gray-600 mt-2 font-sans">
+    <!-- <BreadCrumb /> -->
+      <h2 class="text-[42px] leading-[48px] font-space-grotesk font-semibold text-[#1b2b68]">{{ blok.header }}</h2>
+      <p class="text-[18px] font-normal text-[#1b2b68] mt-2">
         {{ blok.perex }}
       </p>
           <div class="h-[1px] w-full bg-gray-500/40 my-4"></div>
         <div class="flex items-center justify-between gap-x-3 text-gray-500 font-medium text-[15px] mt-8">
-                        <div class="flex gap-x-1.5 items-center group">
+                        <div class="flex gap-x-1 items-center group">
                           <NuxtIcon name="north-west" class="text-[18px] group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:transition ease-in duration-150 text-blue-600" />
-                          <NuxtLink to="/" class="font-medium text-blue-600"> 
+                          <NuxtLink to="/" class="font-medium text-blue-600 hover:underline"> 
                             Back to Blog
                           </NuxtLink>
                         </div>
                         <span class="flex items-center gap-x-2">
-                          <p class="">
+                          <p class="text-[#1b2b68]">
                           {{ blok.author }}
                           </p>
                           <p class="">|</p>
-                          <p class="">
+                          <p class="text-[#1b2b68]">
                           {{ date }}
                           </p>
                         </span>
                         <span>
-                            <p> 
+                            <p class="text-[#1b2b68]"> 
                             {{
                               readingTime
                             }} 

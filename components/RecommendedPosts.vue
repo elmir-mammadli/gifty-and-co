@@ -1,15 +1,15 @@
 <template>
-    <div class="w-[280px]">
-      <h3 class="text-gray-800 font-semibold mb-4 pb-2 text-[22px] border-b border-black border-opacity-10">
+    <div class="w-[280px] cursor-pointer">
+      <h3 class="text-[#1b2b68] font-semibold mb-4 text-[22px]">
         You might also like:
       </h3>
-      <div v-for="(item, index) in recommendedPosts" :key="index" class="flex gap-x-1 text-[16px] font-normal mb-1 text-black">
+      <div v-for="(item, index) in recommendedPosts" :key="index" class="flex gap-x-1 text-[16px] font-normal mb-5 text-black bg-[#1b2b68]/5 border border-1 px-4 pt-4 rounded-md shadow-md hover:scale-[98%] transition-all duration-100">
         <NuxtLink :to="item.full_slug" target="_blank" class="text-black font-normal group mb-4">
           <NuxtImg :src="item.content.image.filename" class="rounded-md" />
           <div>
-            <p class="group-hover:underline font-semibold mt-1">{{ item.name }}</p>
+            <p class="group-hover:underline font-semibold mt-1 text-[#1b2b68]">{{ substringedBlogPost(item.name) }}</p>
           </div>
-          <div class="flex items-center text-[13px] mt-1 text-black opacity-50 font-light gap-x-2">
+          <div class="flex items-center text-[13px] mt-1 text-[#1b2b68] font-light gap-x-2">
                           <p>
                             {{ date(item.content.date) }}
                           </p>
@@ -41,7 +41,6 @@
   }
   const storyblokApi = useStoryblokApi()
   const recommendedPosts = ref<Content[]>([])
-  console.log('AWW', props.contents);
 
   const hideCurrent = () => {
     if (props.contents) {
@@ -60,6 +59,10 @@
       day: 'numeric'
     
     })
+  }
+
+  const substringedBlogPost = (item: Content['name']): Content['name'] => {
+    return item.length > 50 ? item.substring(0, 50) + '...' : item
   }
 
   onMounted(async () => {
