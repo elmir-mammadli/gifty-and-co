@@ -2,7 +2,7 @@
 
 </script>
 <template>
-  <div class="bg-white font-space-grotesk">
+  <div class="bg-[#FBFBFB] font-space-grotesk">
    <div class="mx-auto max-w-screen-rD">
     <Navbar />
     <slot />
