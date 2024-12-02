@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { _backgroundColor } from '#tailwind-config/theme';
 import { routesData } from './navigation/routesData';
 
 const openDropdown = ref<string | null>(null);
@@ -15,6 +16,12 @@ const closeDropdown = () => {
 const linkConcatenator = (link: string) => {
     return '/blog/' + link
 }
+const router = useRouter()
+const exceptionTrendingClickHandler = (path: string) => {
+    if (path === '/trending') {
+        router.push('/blog/trending')
+    }
+}
 
 </script>
 
@@ -26,24 +33,29 @@ const linkConcatenator = (link: string) => {
         </NuxtLink>
         <ul class="flex gap-x-10 text-gray-800 text-lg font-normal">
             <li
-                class="relative"
+                class="relative group"
                 v-for="route in routesData"
                 :key="route.path"
             >
                 <button
-                @click="toggleDropdown(route.label)"
-                class="relative p-2 text-black opacity-80 hover:underline font-medium hover:text-[#FF0060]"
+                @mouseenter="toggleDropdown(route.label)"
+                @click="exceptionTrendingClickHandler(route.path)"
+                class="relative p-2 text-black bg-opacity-90 hover:underline hover:top-0.5 ease-linear duration-100 hover:text-[#FBFBFB] font-medium rounded-xl px-4 border-[2px] border-black z-30"
+                :style="`background-color: ${route.color}`"
                 >
                     {{ route.label }}
                 </button>
-                <span v-if="route.label === routesData[routesData.length - 1].label" class="absolute -right-6 -top-3 bg-[#FF0060] text-white text-[11px] font-semibold px-[6px] rounded-xl">HOT</span>
+                <span class="absolute w-full h-full top-1.5 left-0 group-hover:top-1 rounded-xl px-4 border-[2px] group-hover:border-0 border-black z-0 bg-black ease-linear duration-100"></span>
+                <!-- <span v-if="route.label === routesData[routesData.length - 1].label" class="absolute -right-6 -top-3 bg-[#FF0060] text-white text-[11px] font-semibold px-[6px] rounded-xl">HOT</span> -->
                 <span 
-                v-if="openDropdown === route.label" 
-                class="absolute max-w-[200px] w-max left-2 top-12 p-2 bg-gray-50 shadow-sm border border-1 rounded-lg z-[9999]">
+                v-if="openDropdown === route.label && route.path !== '/trending'" 
+                class="absolute max-w-[200px] w-max left-2 top-16 p-2 shadow-sm outline outline-[2px] rounded-lg z-[9999]"
+                :style="`background-color: ${route.color}`"
+                >
                     <div
                     v-for="dropdown in route.dropdown?.elements"
                     :key="dropdown.path"
-                    class="block p-2 text-black opacity-60 hover:underline font-medium hover:text-[#FF0060]"
+                    class="block p-2 text-black font-medium hover:text-[#FBFBFB]"
                     >
                         <NuxtLink :to="linkConcatenator(dropdown.path)" @click="closeDropdown()">
                             {{ dropdown.label }}
