@@ -37,9 +37,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center">
     <Hero />
-    <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 rD:grid-cols-3 gap-8 md:gap-y-12 px-5 rD:px-0 mt-12">
+      <div class="max-w-[1280px] mx-auto flex flex-wrap justify-center gap-x-8 xl:gap-x-0 xl:justify-between md:gap-y-12 px-5 rD:px-0 mt-12">
       <TransitionGroup name="list">
       <BlogPost 
         v-for="(post, index) in blog" 
@@ -51,16 +50,15 @@ onMounted(() => {
       <component :is="skeleton" />
       </template>
     </div>
-  </div>
 </template>
 <style>
 .list-enter-active,
 .list-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(5px);
 }
 </style>
