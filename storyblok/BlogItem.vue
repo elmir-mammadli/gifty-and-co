@@ -45,7 +45,7 @@ return text.toLowerCase().replace(/\s+/g, '-')
           class="rounded-md"
           />
           <div>
-            <div class="text-[#1b2b68] text-[18px]" v-html="blok.perex" />
+            <div class="text-[#1b2b68] text-[18px] text-justify" v-html="blok.perex" />
           <NuxtLink :to="blok.button.url" target="_blank">
             <button class="btn-style p-4 mt-6 rounded-md font-poppins text-white hover:underline font-semibold" style="text-transform: uppercase; letter-spacing: 0.5px;">Buy from Amazon.com</button>
           </NuxtLink>

@@ -32,7 +32,7 @@ const linkConcatenator = (link: string) => {
             >
                 <button
                 @click="toggleDropdown(route.label)"
-                class="relative p-2 text-black opacity-60 hover:underline font-medium hover:text-[#FF0060]"
+                class="relative p-2 text-black opacity-80 hover:underline font-medium hover:text-[#FF0060]"
                 >
                     {{ route.label }}
                 </button>
