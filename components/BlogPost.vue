@@ -1,17 +1,6 @@
 <script lang="ts" setup>
 
-// interface BlogPost {
-//   body: {
-//     full_slug: string
-//   _uid: string
-//   img: {
-//     filename: string
-//   }
-//   header: string
-//   perex: string
-//   }
-// }
-defineProps<{
+interface Props {
     post: {
         full_slug: string
         content: {
@@ -21,13 +10,14 @@ defineProps<{
         }
         name: string
     }
-}>()
+}
+defineProps<Props>()
 
 </script>
 <template>
 <NuxtLink :to="'/' + post.full_slug">
-    <article class="max-w-[410px] flex md:flex-col justify-start gap-x-2 hover:scale-[99%] transition ease-linear duration-75 group">
-            <div class="xs:outline xs:outline-gray-200 outline-opacity-35 rounded-[6px] max-w-[140px] xs:max-w-[160px] md:max-w-none">
+    <article class="max-w-[410px] flex flex-col justify-start gap-x-2 hover:scale-[99%] transition ease-linear duration-75 group">
+            <div class="xs:outline xs:outline-gray-200 outline-opacity-35 rounded-[6px] max-w-[405px]">
                     <NuxtImg :src="post.content.image.filename" class="w-full rounded-[6px]" />
             </div>
             <div class="flex justify-between mt-2 text-black opacity-60">
