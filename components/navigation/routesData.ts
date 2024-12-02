@@ -2,10 +2,10 @@ export type Categories = 'men' | 'women' | 'kids' | 'trending';
 
 export interface NavbarData {
     label: string;
-    path: string; // Path will be dynamically generated
+    path: `/${Categories}` | string // Path will be dynamically generated
     color?: string;
     dropdown?: {
-        elements: Pick<NavbarData, 'label' | 'path'>[]; // Only pick label and path
+        elements: Pick<NavbarData, 'label' | 'path'>[] // Only pick label and path
     }
 }
 
@@ -46,7 +46,7 @@ export const routesData: Array<NavbarData> = [
     {
         label: 'Men',
         path: '/men',
-        color: '#32C6F2',
+        color: '#0079ff',
         dropdown: {
             elements: itemsByCategories['men']
         }
@@ -70,5 +70,6 @@ export const routesData: Array<NavbarData> = [
     {
         label: 'Trending',
         path: '/trending',
+        color: '#FA812F'
     }
 ];
