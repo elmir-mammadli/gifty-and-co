@@ -1,17 +1,32 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import { _backgroundColor } from "#tailwind-config/theme"
+
+const storyblokAccesstoken = 'w1uPNOeL4KxHkC8llyZzDAtt'
 export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
     'nuxt-icons',
-    ['@storyblok/nuxt', { accessToken: 'w1uPNOeL4KxHkC8llyZzDAtt' }],
+    ['@storyblok/nuxt', { accessToken: storyblokAccesstoken }],
     "@nuxt/scripts",
     '@nuxtjs/sitemap',
   ],
 
   site: {
-    url: 'https://',
+    url: 'https://giftyand.co',
+  },
+
+  sitemap: {
+    hostname: 'https://giftyand.co',
+    gzip: true,
+  },
+  
+  runtimeConfig: {
+    public: {
+      siteUrl: 'giftyand.co'
+    }
   },
 
   imports: {
@@ -34,7 +49,69 @@ export default defineNuxtConfig({
     quality: 80
   },
 
-  ssr: false,
+  ssr: true,
+
+  nitro: {
+    storage: {
+      cache: {
+        driver: 'fs',
+        base: './.cache',
+      },
+      storyblok: {
+        driver: 'fs',
+        base: './.cache/storyblok'
+      }
+    },
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/blog/*'],
+    },
+    routeRules: {
+      // Homepage - SSR with cache
+      '/': { 
+        cache: { 
+          maxAge: 60 * 60, // 1 hour
+          staleMaxAge: 24 * 60 * 60, // 1 day as stale (serve while revalidating)
+          swr: true // Stale-while-revalidate
+        }
+      },
+      // Product pages - SSR with cache
+      '/products/**': { 
+        cache: { 
+          maxAge: 60 * 30, // 30 minutes
+          staleMaxAge: 24 * 60 * 60, // 1 day
+          swr: true,
+        }
+      },
+      // Blog pages - SSR with cache
+      '/blog/**': { 
+        cache: { 
+          maxAge: 60 * 60, // 1 hour
+          staleMaxAge: 24 * 60 * 60, // 1 day
+          swr: true,
+        }
+      },
+      // API routes - SSR with short cache
+      '/api/**': { 
+        cache: { 
+          maxAge: 60 * 5, // 5 minutes
+          swr: true 
+        }
+      },
+      // Static assets - cache headers
+      '/_nuxt/**': { 
+        headers: { 
+          'cache-control': 'public, max-age=31536000, immutable' 
+        }
+      },
+      // Images - cache headers
+      '/images/**': { 
+        headers: { 
+          'cache-control': 'public, max-age=31536000, immutable' 
+        }
+      }
+    }
+  },
 
   app:{
     head: {
@@ -55,8 +132,9 @@ export default defineNuxtConfig({
           rel: 'stylesheet'
         },
       ],
-    },
+      bodyAttrs: {
+        style: 'background-color: white;'
+      }
+    }
   },
-
-  compatibilityDate: '2024-10-06',
 })
