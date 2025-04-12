@@ -1,5 +1,5 @@
 <template>
-    <div class="hidden md:flex justify-center items-center max-w-screen-xl mx-auto mt-10">
+    <div class="hidden md:flex justify-center items-center max-w-screen-xl mx-auto mt-20">
        <article class="text-[80px] text-[#0079FF] font-bold leading-[80px] flex flex-col justify-center items-center">
         <h1 class="tracking-tight font-poppins">
             <span class="text-[#0079FF]">Gifts</span> with purpose, <br>

@@ -19,25 +19,25 @@ const createCategoryPaths = (category: Categories, items: Pick<NavbarData, 'labe
 
 export const itemsByCategories: Record<Categories, Pick<NavbarData, 'label' | 'path'>[]> = {
     'men': createCategoryPaths('men', [
-        { label: 'Home & Hobbies', path: 'home-hobbies' },
+        { label: 'Home & Hobbies', path: 'home-and-hobbies' },
         { label: 'Tech & Gadgets', path: 'tech-and-gadgets' },
-        { label: 'Grooming & Personal Care', path: 'grooming-personal-care' },
-        { label: 'Entertainment & Media', path: 'entertainment-media' },
-        { label: 'Outdoor & Sports Gear', path: 'outdoor-sports-gear' }
+        { label: 'Grooming & Personal Care', path: 'grooming-and-personal-care' },
+        { label: 'Entertainment & Media', path: 'entertainment-and-media' },
+        { label: 'Outdoor & Sports Gear', path: 'outdoor-and-sports-gear' }
     ]),
     'women': createCategoryPaths('women', [
-        { label: 'Beauty & Personal Care', path: 'beauty-personal-care' },
-        { label: 'Wellness & Relaxation', path: 'wellness-relaxation' },
-        { label: 'Home & Living', path: 'home-living' },
-        { label: 'Crafts & DIY', path: 'crafts-diy' },
+        { label: 'Beauty & Personal Care', path: 'beauty-and-personal-care' },
+        { label: 'Wellness & Relaxation', path: 'wellnessand-relaxation' },
+        { label: 'Home & Living', path: 'home-and-living' },
+        { label: 'Crafts & DIY', path: 'crafts-and-diy' },
         { label: 'Tech & Gadgets', path: 'tech-and-gadgets' }
     ]),
     'kids': createCategoryPaths('kids', [
-        { label: 'Toys & Games', path: 'toys-games' },
+        { label: 'Toys & Games', path: 'toys-and-games' },
         { label: 'Outdoor Play', path: 'outdoor-play' },
         { label: 'Tech for Kids', path: 'tech-for-kids' },
-        { label: 'Art & Creativity', path: 'art-creativity' },
-        { label: 'Books & Learning Materials', path: 'books-learning-materials' }
+        { label: 'Art & Creativity', path: 'art-and-creativity' },
+        { label: 'Books & Learning Materials', path: 'books-and-learning-materials' }
     ]),
     'trending': []
 }

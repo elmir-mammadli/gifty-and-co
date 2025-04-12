@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Image from '~/components/blog/Image.vue';
 interface Blok {
   blok: {
   _uid: string
@@ -26,29 +27,24 @@ return text.toLowerCase().replace(/\s+/g, '-')
 <template>
     <section 
     :id="slugify(blok.header)"
-    class="flex flex-col items-center justify-center mb-10" style="max-width: 800px; margin-bottom: 80px;">
+    class="flex flex-col items-center justify-center mt-16 my-10 rounded-lg shadow-lg bg-gray-100 bg-opacity-10 border" style="max-width: 920px; margin-bottom: 80px; padding: 32px;">
       <div 
-      class="flex flex-col items-star"
-      :class="{
-        'mt-10': order
-      }"
+      class="flex flex-col items-start"
       >
-        <h3
-        class="text-[#1b2b68] text-3xl font-semibold pr-3">
+        <h2
+        class="text-[#1b2b68] text-3xl font-semibold font-poppins pr-3">
         {{ `${headerOrderNum(order)}${blok.header}` }}
-        </h3>
-        <div class="flex items-start mt-4" style="column-gap: 24px;">
-          <NuxtImg
-          width="280"
-          :src="blok.img.filename"
-          :alt="slugify(blok.header)"
-          class="rounded-md"
-          />
+        </h2>
+        <div class="flex items-start mt-8" style="column-gap: 24px;">
+          <Image :src="blok.img.filename" :alt="blok.header" />
           <div>
-            <div class="text-[#1b2b68] text-[18px] text-justify" v-html="blok.perex" />
-          <NuxtLink :to="blok.button.url" target="_blank">
+              <p class="text-[#1b2b68] text-[18px]" v-html="blok.perex"/>
+          <!-- <NuxtLink :href="blok.button.url" target="_blank">
             <button class="btn-style p-4 mt-6 rounded-md font-poppins text-white hover:underline font-semibold" style="text-transform: uppercase; letter-spacing: 0.5px;">Buy from Amazon.com</button>
-          </NuxtLink>
+          </NuxtLink> -->
+          <div class="mt-6">
+           <Button :link="blok.button.url" />
+          </div>
           </div>
         </div>
       </div>

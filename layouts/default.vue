@@ -2,7 +2,7 @@
 
 </script>
 <template>
-  <div class="bg-[#FBFBFB] font-space-grotesk">
+  <div class="font-poppins">
    <div class="mx-auto max-w-screen-rD">
     <Navbar />
     <slot />
@@ -10,6 +10,3 @@
    </div>
   </div>
 </template>
-<style>
-
-</style>

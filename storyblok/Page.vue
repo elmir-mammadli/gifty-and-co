@@ -11,8 +11,6 @@ const props = defineProps({
   }
 })
 
-console.log('BlogPost', props.blok)
-
 const isFixed = ref(false)
 const isScrollIcon = ref(false)
 
@@ -52,16 +50,16 @@ const scrollToTop = () => {
 // })
 
 const arraySum = props.blok.body.length
+console.log('Log it:', arraySum);
+
 </script>
 
 <template>
-    <section class="mt-[80px]" v-editable="blok">
+    <section class="mt-[80px] max-w-6xl mx-auto" v-editable="blok">
         <BlogPostHero v-if="blok" :blok="blok"  />
-      <section class="flex md:flex-row items-start justify-between" style="column-gap: 32px; margin-top: 60px;">
-        <ContentsTable :is-fixed="isFixed" :contents="blok.body" :class="{
-          'sticky-content' : isFixed
-        }" />
+      <section class="flex md:flex-row items-start justify-center" style="column-gap: 54px; margin-top: 80px;">
         <div class="flex flex-col">
+          <ContentsTable :contents="blok.body" />
           <StoryblokComponent
           v-for="(blok, index) in blok.body"
           :key="blok._uid"
@@ -69,7 +67,7 @@ const arraySum = props.blok.body.length
           :order="index"
         />
         </div>
-        <RecommendedPosts :contents="blok" :class="{
+        <RecommendedPosts :contents="blok.body" :class="{
           'sticky-content' : isFixed
         }" />
 
